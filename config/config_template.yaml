@@ -3,7 +3,7 @@
 
 # API Keys
 api_keys:
-  eia_api_key: "YOUR_EIA_API_KEY_HERE" # Get free key at: https://www.eia.gov/opendata/
+  eia_api_key: "OTfFZuxP8YvEdYnnD71tzek5cLyXHqKrejheduKd" # Get free key at: https://www.eia.gov/opendata/
 
 # Data Settings
 data:
