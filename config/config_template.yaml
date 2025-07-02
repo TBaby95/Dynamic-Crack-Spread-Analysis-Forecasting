@@ -1,0 +1,49 @@
+# Configuration Template for Gasoline Trading Analysis
+# Copy this file to config.yaml and add your actual API keys
+
+# API Keys
+api_keys:
+  eia_api_key: "YOUR_EIA_API_KEY_HERE" # Get free key at: https://www.eia.gov/opendata/
+
+# Data Settings
+data:
+  start_date: "2019-01-01"
+  end_date: "2024-12-31"
+  update_frequency: "daily"
+
+# EIA Data Series IDs (don't change these)
+eia_series:
+  gasoline_price: "PET.EER_EPMRR_PF4_RGC_DPG.W" # Weekly Regular Gasoline Retail Price
+  crude_oil_price: "PET.RWTC.W" # Weekly WTI Crude Oil Price
+  gasoline_stocks: "PET.WGTSTUS1.W" # Weekly Gasoline Total Stocks
+  crude_stocks: "PET.WCSTUS1.W" # Weekly Crude Oil Stocks
+  refinery_utilization: "PET.WPULEUS3.W" # Weekly Refinery Utilization
+
+# Analysis Parameters
+analysis:
+  crack_spread:
+    gasoline_barrels: 2 # 3-2-1 crack spread: 3 crude -> 2 gasoline + 1 distillate
+    heating_oil_barrels: 1
+    crude_barrels: 3
+
+  mean_reversion:
+    lookback_window: 60 # days for rolling calculations
+    entry_threshold: 1.8 # standard deviations for entry signal
+    exit_threshold: 0.5 # standard deviations for exit signal
+
+  regime_detection:
+    n_states: 2 # number of volatility regimes (low/high)
+
+# Trading Strategy Settings
+strategy:
+  initial_capital: 100000 # starting capital for backtesting
+  position_size: 0.02 # 2% of capital per trade
+  transaction_cost: 0.001 # 0.1% transaction cost
+
+# File Paths
+paths:
+  data_dir: "data/"
+  raw_data: "data/raw/"
+  processed_data: "data/processed/"
+  reports: "reports/"
+  notebooks: "notebooks/"
